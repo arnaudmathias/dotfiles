@@ -1,0 +1,15 @@
+*.o
+*.so
+*.a
+*.dll
+*.exe
+
+.*.sw?
+.netrwhist
+
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+.com.apple.*
+Thumbs.db

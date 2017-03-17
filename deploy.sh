@@ -2,7 +2,7 @@
 set -e
 set -o verbose
 
-for path in .vimrc .vim .gitconfig .gdbinit; do
+for path in .vimrc .vim .gitconfig .gdbinit .gitignore; do
 	echo $path;
 	if [ ! -h ~/$path ]; then
 		ln -vis ~/.dotfiles/$path ~/$path
