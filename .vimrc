@@ -1,8 +1,14 @@
 execute pathogen#infect()
 
+if (has("termguicolors"))
+	set termguicolors
+endif
+
+set t_Co=256
+
 filetype on
-syntax enable
 set background=dark
+syntax enable
 colorscheme solarized
 
 set nu
@@ -31,3 +37,5 @@ set laststatus=2
 set path=$PWD/**
 com! FormatJSON %!python -m json.tool
 autocmd BufWritePre * :%s/\s\+$//e
+
+let g:lightline = { 'colorscheme': 'solarized', }

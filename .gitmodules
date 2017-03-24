@@ -22,3 +22,9 @@
 [submodule ".vim/bundle/vim-easytags"]
 	path = .vim/bundle/vim-easytags
 	url = https://github.com/xolox/vim-easytags.git
+[submodule ".vim/bundle/colorschemes"]
+	path = .vim/bundle/colorschemes
+	url = https://github.com/flazz/vim-colorschemes.git
+[submodule ".vim/bundle/tender"]
+	path = .vim/bundle/tender
+	url = https://github.com/jacoborus/tender.vim.git
