@@ -2,7 +2,7 @@ execute pathogen#infect()
 
 filetype on
 syntax enable
-set termguicolors
+set background=dark
 colorscheme solarized
 
 set nu
@@ -31,13 +31,3 @@ set laststatus=2
 set path=$PWD/**
 com! FormatJSON %!python -m json.tool
 autocmd BufWritePre * :%s/\s\+$//e
-
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
