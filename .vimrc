@@ -1,16 +1,40 @@
-execute pathogen#infect()
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-fugitive'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-easytags'
+Plug 'sheerun/vim-polyglot'
+Plug 'itchyny/lightline.vim'
+Plug 'fidian/hexmode'
+call plug#end()
 
 if (has("termguicolors"))
 	set termguicolors
 endif
 
-"set t_Co=256
-
-filetype on
+filetype plugin on
+filetype indent on
 set background=dark
 syntax enable
 colorscheme solarized
 
+set langmenu=en
+set wildmenu
+set wildmode=longest:list,full
+set wildignore=*.o,*~,*.pyc
+if has("win16") || has("win32")
+    set wildignore+=.git\*,.hg\*,.svn\*
+else
+    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+endif
+
+imap jk <ESC>
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+set history=500
 set nu
 set autoindent
 filetype indent on
@@ -22,15 +46,13 @@ set backspace=indent,eol,start
 set shiftwidth=4
 set tabstop=4
 
-set visualbell
+set so=7
+
+set novisualbell
 set noerrorbells
-imap jk <ESC>
 set hlsearch
 set incsearch
 set ignorecase
-
-set wildmenu
-set wildmode=longest,list
 
 set laststatus=2
 
