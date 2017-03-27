@@ -1,3 +1,5 @@
+let mapleader = "\<Space>"
+
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
@@ -34,6 +36,7 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+nnoremap <Leader><Leader> <C-^>
 
 set history=500
 set nu
