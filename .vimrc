@@ -1,6 +1,7 @@
 let mapleader = "\<Space>"
 
 call plug#begin('~/.vim/plugged')
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 Plug 'xolox/vim-misc'
@@ -8,19 +9,20 @@ Plug 'xolox/vim-easytags'
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
 Plug 'fidian/hexmode'
-Plug 'christoomey/vim-tmux-navigator'
+Plug 'chriskempson/base16-vim'
 call plug#end()
-
-if (has("termguicolors"))
-	set termguicolors
-endif
 
 filetype plugin on
 filetype indent on
-set background=dark
 syntax enable
-colorscheme solarized
 
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+
+set splitbelow
+set splitright
 set langmenu=en
 set wildmenu
 set wildmode=longest:list,full
