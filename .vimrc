@@ -6,6 +6,7 @@ Plug 'xolox/vim-easytags'
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
 Plug 'fidian/hexmode'
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 if (has("termguicolors"))
@@ -61,3 +62,7 @@ com! FormatJSON %!python -m json.tool
 autocmd BufWritePre * :%s/\s\+$//e
 
 let g:lightline = { 'colorscheme': 'solarized', }
+
+if has("autocmd")
+	autocmd bufwritepost .vimrc source $MYVIMRC
+endif
