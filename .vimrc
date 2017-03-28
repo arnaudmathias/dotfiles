@@ -40,7 +40,11 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+
 nnoremap <Leader><Leader> <C-^>
+nnoremap <Leader>o :only<CR>
+nnoremap <Leader>w :write<CR>
+nnoremap <Leader>x :xit<CR>
 
 set history=500
 set nu
