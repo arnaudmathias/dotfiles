@@ -2,6 +2,7 @@ let mapleader = "\<Space>"
 
 call plug#begin('~/.vim/plugged')
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 Plug 'xolox/vim-misc'
@@ -10,6 +11,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
 Plug 'fidian/hexmode'
 Plug 'chriskempson/base16-vim'
+Plug 'daviesjamie/vim-base16-lightline'
 call plug#end()
 
 filetype plugin on
@@ -66,7 +68,7 @@ set path=$PWD/**
 com! FormatJSON %!python -m json.tool
 autocmd BufWritePre * :%s/\s\+$//e
 
-let g:lightline = { 'colorscheme': 'solarized', }
+let g:lightline = { 'colorscheme': 'base16', }
 
 if has("autocmd")
 	autocmd bufwritepost .vimrc source $MYVIMRC
