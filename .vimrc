@@ -2,6 +2,7 @@ let mapleader = "\<Space>"
 
 call plug#begin('~/.vim/plugged')
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
