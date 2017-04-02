@@ -14,6 +14,9 @@ antigen apply
 #alias
 alias la="ls -la"
 
+# Load Homebrew config script
+source $HOME/.brewconfig.zsh
+
 #Automaticly launch TMUX
 if [[ -z "$TMUX" ]]
 then
