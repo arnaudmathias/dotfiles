@@ -13,6 +13,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'fidian/hexmode'
 Plug 'chriskempson/base16-vim'
 Plug 'daviesjamie/vim-base16-lightline'
+Plug 'w0rp/ale'
 call plug#end()
 
 filetype plugin on
@@ -73,8 +74,12 @@ set path=$PWD/**
 com! FormatJSON %!python -m json.tool
 autocmd BufWritePre * :%s/\s\+$//e
 
-let g:lightline = { 'colorscheme': 'base16', }
+let g:lightline = {
+		\	'colorscheme': 'base16'
+      	\ }
 
 if has("autocmd")
 	autocmd bufwritepost .vimrc source $MYVIMRC
 endif
+
+let g:ale_sign_column_always = 1
