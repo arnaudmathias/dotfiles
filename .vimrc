@@ -21,9 +21,11 @@ filetype indent on
 syntax enable
 
 if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
+	let base16colorspace=256
+	source ~/.vimrc_background
 endif
+
+set cursorline
 
 set splitbelow
 set splitright
@@ -37,6 +39,24 @@ else
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 endif
 
+if exists('$SUDO_USER')
+	set nobackup
+	set nowritebackup
+else
+	set directory=~/.vim/tmp/backup//
+	set directory+=.
+endif
+
+if exists('$SUDO_USER')
+	set noswapfile
+else
+	set directory=~/.vim/tmp/swap//
+	set directory+=.
+endif
+
+set mouse=n
+set ttymouse=xterm2
+
 imap jk <ESC>
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -48,6 +68,7 @@ nnoremap <Leader>o :only<CR>
 nnoremap <Leader>w :write<CR>
 nnoremap <Leader>x :xit<CR>
 
+set hidden
 set history=500
 set nu
 set autoindent
@@ -59,8 +80,9 @@ set smartindent
 set backspace=indent,eol,start
 set shiftwidth=4
 set tabstop=4
-
-set so=7
+set scrolloff=7
+set shortmess+=A
+set switchbuf=usetab
 
 set novisualbell
 set noerrorbells

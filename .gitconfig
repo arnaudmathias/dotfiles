@@ -5,4 +5,6 @@
 	editor = vim
 	excludesfile = ~/.gitignore
 [credential]
-	helper = cache
+	helper = cache --timeout=28800
+[url "https://IndieDriver@github.com"]
+	insteadOf = https://github.com
