@@ -3,6 +3,7 @@
 *.a
 *.dll
 *.exe
+a.out
 
 .*.sw?
 .netrwhist

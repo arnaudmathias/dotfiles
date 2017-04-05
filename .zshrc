@@ -1,4 +1,4 @@
-source ~/.zsh/checks.zsh
+source ~/.zsh/checks.zsh		#Some useful checks
 
 if [[ ! -f ~/.zsh/antigen.zsh ]]; then
 	curl -L git.io/antigen > ~/.zsh/antigen.zsh
@@ -44,16 +44,13 @@ if [[ ! -d ~/.tmux/plugins/tpm/.git ]]; then
 fi
 
 #Automaticly launch TMUX (Only at home)
-if [[ $IS_MAC -eq 0 ]]; then
-	if [[ -z "$TMUX" ]]
+if [[ $IS_MAC -eq 0 ]] && [[ -z "$TMUX" ]]; then
+	ID="`tmux ls | grep -vm1 attached | cut -d: -f1`"
+	if [[ -z "$ID" ]]
 	then
-		ID="`tmux ls | grep -vm1 attached | cut -d: -f1`"
-		if [[ -z "$ID" ]]
-		then
-			tmux new-session
-		else
-			tmux attach-session -t "$ID"
-		fi
+		tmux new-session
+	else
+		tmux attach-session -t "$ID"
 	fi
 fi
 
