@@ -43,16 +43,18 @@ if [[ ! -d ~/.tmux/plugins/tpm/.git ]]; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
-#Automaticly launch TMUX
-if [[ -z "$TMUX" ]]
-then
-    ID="`tmux ls | grep -vm1 attached | cut -d: -f1`"
-    if [[ -z "$ID" ]]
-    then
-        tmux new-session
-    else
-        tmux attach-session -t "$ID"
-    fi
+#Automaticly launch TMUX (Only at home)
+if [[ $IS_MAC -eq 0 ]]; then
+	if [[ -z "$TMUX" ]]
+	then
+		ID="`tmux ls | grep -vm1 attached | cut -d: -f1`"
+		if [[ -z "$ID" ]]
+		then
+			tmux new-session
+		else
+			tmux attach-session -t "$ID"
+		fi
+	fi
 fi
 
 #Base16-shell
