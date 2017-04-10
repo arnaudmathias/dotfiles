@@ -7,13 +7,14 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 Plug 'xolox/vim-misc'
-Plug 'xolox/vim-easytags'
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
 Plug 'fidian/hexmode'
 Plug 'chriskempson/base16-vim'
 Plug 'daviesjamie/vim-base16-lightline'
 Plug 'w0rp/ale'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 call plug#end()
 
 filetype plugin on
@@ -26,6 +27,10 @@ if filereadable(expand("~/.vimrc_background"))
 endif
 
 set cursorline
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 set splitbelow
 set splitright
@@ -105,3 +110,6 @@ if has("autocmd")
 endif
 
 let g:ale_sign_column_always = 1
+let g:ale_cpp_gcc_options = '-std=c++98 -Wall -Werror -Wextra -I includes'
+let g:ale_cpp_clang_options = '-std=c++98 -Wall -Werror -Wextra -I includes'
+let g:ale_cpp_clangtidy_options  = '-std=c++98 -Wall -Werror -Wextra -I includes'
