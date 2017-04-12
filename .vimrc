@@ -28,10 +28,6 @@ endif
 
 set cursorline
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
 set splitbelow
 set splitright
 set langmenu=en
@@ -109,7 +105,13 @@ if has("autocmd")
 	autocmd bufwritepost .vimrc source $MYVIMRC
 endif
 
+" ALE LINTER CONFIG
 let g:ale_sign_column_always = 1
 let g:ale_cpp_gcc_options = '-std=c++98 -Wall -Werror -Wextra -I includes'
 let g:ale_cpp_clang_options = '-std=c++98 -Wall -Werror -Wextra -I includes'
 let g:ale_cpp_clangtidy_options  = '-std=c++98 -Wall -Werror -Wextra -I includes'
+
+" UTILS SNIP CONFIG
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
