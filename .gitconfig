@@ -8,3 +8,9 @@
 	helper = cache --timeout=28800
 [url "https://IndieDriver@github.com"]
 	insteadOf = https://github.com
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
+[difftool]
+	prompt = false
