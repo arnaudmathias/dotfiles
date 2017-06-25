@@ -12,6 +12,7 @@ antigen bundle robbyrussell/oh-my-zsh lib/
 
 antigen bundle git
 antigen bundle paulirish/git-open
+antigen bundle colored-man-pages
 
 antigen theme pygmalion
 antigen use oh-my-zsh
