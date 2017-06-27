@@ -14,3 +14,8 @@ a.out
 .Trashes
 .com.apple.*
 Thumbs.db
+
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+cmake_install.cmake
