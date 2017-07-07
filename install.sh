@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-for path in .zshrc .zsh .vimrc .vim .tmux.conf .tmux .gitconfig .gdbinit .gitignore; do
+for path in .zshrc .zsh .vimrc .vim .vsvimrc .tmux.conf .tmux .gitconfig .gdbinit .gitignore; do
 	echo $path;
 	if [ ! -h ~/$path ]; then
 		ln -vis ~/.dotfiles/$path ~/$path
