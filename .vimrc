@@ -15,6 +15,7 @@ Plug 'daviesjamie/vim-base16-lightline'
 Plug 'w0rp/ale'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'tpope/vim-sleuth'
 call plug#end()
 
 filetype plugin on
