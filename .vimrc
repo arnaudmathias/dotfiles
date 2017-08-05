@@ -107,9 +107,9 @@ endif
 
 " ALE LINTER CONFIG
 let g:ale_sign_column_always = 1
-let g:ale_cpp_gcc_options = '-std=c++98 -Wall -Werror -Wextra -I includes libft'
-let g:ale_cpp_clang_options = '-std=c++98 -Wall -Werror -Wextra -I includes libft'
-let g:ale_cpp_clangtidy_options  = '-std=c++98 -Wall -Werror -Wextra -I includes libft'
+let g:ale_cpp_gcc_options = '-std=c++11 -Wall -Werror -Wextra'
+let g:ale_cpp_clang_options = '-std=c++11 -Wall -Werror -Wextra'
+let g:ale_cpp_clangtidy_options  = '-std=c++11 -Wall -Werror -Wextra'
 
 let g:ale_c_gcc_options = '-Wall -Werror -Wextra -I includes libft'
 let g:ale_c_clang_options = '-Wall -Werror -Wextra -I includes libft'
