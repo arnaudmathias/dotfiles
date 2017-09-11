@@ -122,3 +122,6 @@ let g:ale_c_clangtidy_options  = '-Wall -Werror -Wextra -I includes libft'
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+let g:clang_format#cod_style = 'google'
+nmap <Leader>C :ClangFormatAutoToggle<CR>
