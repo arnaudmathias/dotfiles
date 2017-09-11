@@ -17,6 +17,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-obsession'
+Plug 'rhysd/vim-clang-format'
 call plug#end()
 
 filetype plugin on
