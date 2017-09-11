@@ -16,7 +16,11 @@ Plug 'w0rp/ale'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-sleuth'
+<<<<<<< HEAD
 Plug 'tpope/vim-obsession'
+=======
+Plug 'tpope/obsession'
+>>>>>>> 35f1cddd392608deba4e47f2a40c588fef5b0558
 call plug#end()
 
 filetype plugin on
