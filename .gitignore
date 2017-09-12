@@ -13,6 +13,7 @@ a.out
 .Spotlight-V100
 .Trashes
 .com.apple.*
+*.dSYM
 Thumbs.db
 
 CMakeCache.txt
