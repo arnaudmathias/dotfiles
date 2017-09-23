@@ -16,6 +16,8 @@ Plug 'w0rp/ale'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-obsession'
+Plug 'rhysd/vim-clang-format'
 call plug#end()
 
 filetype plugin on
@@ -107,16 +109,19 @@ if has("autocmd")
 endif
 
 " ALE LINTER CONFIG
-let g:ale_sign_column_always = 1
-let g:ale_cpp_gcc_options = '-std=c++11 -Wall -Werror -Wextra'
-let g:ale_cpp_clang_options = '-std=c++11 -Wall -Werror -Wextra'
-let g:ale_cpp_clangtidy_options  = '-std=c++11 -Wall -Werror -Wextra'
+let g:ale_sign_column_always = 0
+let g:ale_cpp_gcc_options = '-std=c++11'
+let g:ale_cpp_clang_options = '-std=c++11'
+let g:ale_cpp_clangtidy_options  = '-std=c++11'
 
-let g:ale_c_gcc_options = '-Wall -Werror -Wextra -I includes libft'
-let g:ale_c_clang_options = '-Wall -Werror -Wextra -I includes libft'
-let g:ale_c_clangtidy_options  = '-Wall -Werror -Wextra -I includes libft'
+let g:ale_c_gcc_options = '-Wall -Werror -Wextra'
+let g:ale_c_clang_options = '-Wall -Werror -Wextra'
+let g:ale_c_clangtidy_options  = '-Wall -Werror -Wextra'
 
 " UTILS SNIP CONFIG
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+let g:clang_format#cod_style = 'google'
+nmap <Leader>C :ClangFormatAutoToggle<CR>

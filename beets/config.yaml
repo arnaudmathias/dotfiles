@@ -1,0 +1,20 @@
+directory: M:/
+library: M:/musiclibrary.db
+import:
+  copy: yes
+  write: yes
+
+original_date: yes
+
+paths:
+  default: $albumartist/$albumartist - $original_year - $album%aunique{}/$track $title
+  singleton: $artist/Non-Album/$title
+  comp: Compilations/$album - $original_year - %aunique{}/$track $title
+  albumtype:soundtrack: Soundtracks/$album/$track $title
+
+plugins: convert fetchart
+
+convert:
+  format: mp3
+  max_bitrate: 256
+  copy_album_art: yes
