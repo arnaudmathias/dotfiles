@@ -4,6 +4,9 @@ if [[ ! -f ~/.zsh/antigen.zsh ]]; then
 	curl -L git.io/antigen > ~/.zsh/antigen.zsh
 fi
 
+LC_CTYPE=en_US.UTF-8
+LC_ALL=en_US.UTF-8
+
 #-----------------------------------------------
 # Antigen
 #-----------------------------------------------
