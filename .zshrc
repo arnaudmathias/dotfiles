@@ -1,8 +1,5 @@
 source ~/.zsh/checks.zsh		#Some useful checks
-
-#if [[ ! -f ~/.zsh/antigen/antigen.zsh ]]; then
-	#curl -L git.io/antigen > ~/.zsh/antigen.zsh
-#fi
+source ~/.zsh/custom_functions.zsh
 
 LC_CTYPE=en_US.UTF-8
 LC_ALL=en_US.UTF-8
@@ -43,11 +40,6 @@ alias ocaml="rlwrap ocaml"
 if [[ $IS_MAC -eq 1 ]]; then
 	# Load Homebrew config script, needed for 42
 	source $HOME/.brewconfig.zsh
-fi
-
-#Tmux Plugin Manager
-if [[ ! -d ~/.tmux/plugins/tpm/.git ]]; then
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
 #Automaticly launch TMUX (Only at home)
