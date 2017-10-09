@@ -20,3 +20,12 @@ CMakeCache.txt
 CMakeFiles
 CMakeScripts
 cmake_install.cmake
+
+*.cmi
+*.cmx
+
+#dotfile own gitignore
+.tmux/plugins/
+.vim/plugged
+.zsh/base16-shell
+.vim/tmp

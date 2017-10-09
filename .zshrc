@@ -1,8 +1,8 @@
 source ~/.zsh/checks.zsh		#Some useful checks
 
-if [[ ! -f ~/.zsh/antigen.zsh ]]; then
-	curl -L git.io/antigen > ~/.zsh/antigen.zsh
-fi
+#if [[ ! -f ~/.zsh/antigen/antigen.zsh ]]; then
+	#curl -L git.io/antigen > ~/.zsh/antigen.zsh
+#fi
 
 LC_CTYPE=en_US.UTF-8
 LC_ALL=en_US.UTF-8
@@ -10,7 +10,7 @@ LC_ALL=en_US.UTF-8
 #-----------------------------------------------
 # Antigen
 #-----------------------------------------------
-source ~/.zsh/antigen.zsh
+source ~/.zsh/antigen/antigen.zsh
 antigen bundle robbyrussell/oh-my-zsh lib/
 
 antigen bundle git
@@ -34,6 +34,7 @@ alias gsh="git shortlog | grep -E '^[ ]+\w+' | wc -l"
 
 # gu shows a list of all developers and the number of commits they've made
 alias gu="git shortlog | grep -E '^[^ ]'"
+alias ocaml="rlwrap ocaml"
 
 #-----------------------------------------------
 # Misc
@@ -74,3 +75,5 @@ if [[ ! -f ~/.vim/autoload/plug.vim ]]; then
     	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
+# OPAM configuration
+. /Users/amathias/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
