@@ -1,5 +1,6 @@
 source ~/.zsh/checks.zsh		#Some useful checks
 source ~/.zsh/custom_functions.zsh
+source ~/.zsh/aliases.zsh
 
 LC_CTYPE=en_US.UTF-8
 LC_ALL=en_US.UTF-8
@@ -20,18 +21,6 @@ antigen use oh-my-zsh
 antigen apply
 
 unsetopt auto_cd
-
-#-----------------------------------------------
-# Alias
-#-----------------------------------------------
-alias vi="vim"
-alias la="ls -la"
-# gsh shows the number of commits for the current repos for all developers
-alias gsh="git shortlog | grep -E '^[ ]+\w+' | wc -l"
-
-# gu shows a list of all developers and the number of commits they've made
-alias gu="git shortlog | grep -E '^[^ ]'"
-alias ocaml="rlwrap ocaml"
 
 #-----------------------------------------------
 # Misc
