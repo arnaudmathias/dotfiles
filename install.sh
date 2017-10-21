@@ -1,10 +1,33 @@
 #!/usr/bin/env bash
 set -e
 
-for path in .vimrc .zshrc .zsh .vim .vsvimrc .tmux.conf .tmux .gitconfig .gdbinit .lldbinit .gitignore; do
+# Regular dotfiles .vimrc, etc
+DOTFILES="	.vimrc
+			.zshrc
+			.zsh
+			.vsvimrc
+			.tmux.conf
+			.tmux
+			.gitconfig
+			.gdbinit
+			.lldbinit
+			.gitignore"
+
+# Configuration file in .config
+CONFFILES="	.config/mpv"
+
+for path in $DOTFILES; do
 	echo $path;
 	if [ ! -h ~/$path ]; then
 		ln -vis ~/.dotfiles/$path ~/$path
+	fi
+done
+
+
+for path in $CONFFILES; do
+	echo $path;
+	if [ ! -h ~/$path ]; then
+		ln -vis ~/.dotfiles/$path ~/.config
 	fi
 done
 

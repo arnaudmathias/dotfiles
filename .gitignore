@@ -24,8 +24,9 @@ cmake_install.cmake
 *.cmi
 *.cmx
 
-#dotfile own gitignore
+# dotfile own gitignore
 .tmux/plugins/
 .vim/plugged
 .zsh/base16-shell
 .vim/tmp
+.config/mpv/watch_later/

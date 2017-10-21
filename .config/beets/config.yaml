@@ -1,8 +1,8 @@
-directory: M:/
-library: M:/musiclibrary.db
+directory: ~/Music
+library: ~/Music/musiclibrary.db
 import:
-  copy: yes
   write: yes
+  move: yes
 
 original_date: yes
 
@@ -12,7 +12,7 @@ paths:
   comp: Compilations/$album - $original_year - %aunique{}/$track $title
   albumtype:soundtrack: Soundtracks/$album/$track $title
 
-plugins: convert fetchart
+plugins: convert fetchart missing
 
 convert:
   format: mp3
