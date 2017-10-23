@@ -29,8 +29,8 @@ filetype indent on
 syntax enable
 
 if filereadable(expand("~/.vimrc_background"))
-	let base16colorspace=256
-	source ~/.vimrc_background
+    let base16colorspace=256
+    source ~/.vimrc_background
 endif
 
 set cursorline
@@ -48,18 +48,18 @@ else
 endif
 
 if exists('$SUDO_USER')
-	set nobackup
-	set nowritebackup
+    set nobackup
+    set nowritebackup
 else
-	set directory=~/.vim/tmp/backup//
-	set directory+=.
+    set directory=~/.vim/tmp/backup//
+    set directory+=.
 endif
 
 if exists('$SUDO_USER')
-	set noswapfile
+    set noswapfile
 else
-	set directory=~/.vim/tmp/swap//
-	set directory+=.
+    set directory=~/.vim/tmp/swap//
+    set directory+=.
 endif
 
 set mouse=n
@@ -75,6 +75,8 @@ nnoremap <Leader><Leader> <C-^>
 nnoremap <Leader>o :only<CR>
 nnoremap <Leader>w :write<CR>
 nnoremap <Leader>x :xit<CR>
+
+nnoremap K :Man <cword><CR>
 
 set hidden
 set history=500
@@ -105,11 +107,11 @@ com! FormatJSON %!python -m json.tool
 autocmd BufWritePre * :%s/\s\+$//e
 
 let g:lightline = {
-		\	'colorscheme': 'base16'
-      	\ }
+	    \	'colorscheme': 'base16'
+	    \ }
 
 if has("autocmd")
-	autocmd bufwritepost .vimrc source $MYVIMRC
+    autocmd bufwritepost .vimrc source $MYVIMRC
 endif
 
 au BufNewFile,BufRead *.ldg,*.ledger setf ledger | comp ledger
