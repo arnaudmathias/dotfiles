@@ -11,7 +11,8 @@ DOTFILES="	.vimrc
 			.gitconfig
 			.gdbinit
 			.lldbinit
-			.gitignore"
+			.gitignore
+			.ledgerrc"
 
 # Configuration file in .config
 CONFFILES="	.config/mpv"
