@@ -21,6 +21,7 @@ antigen use oh-my-zsh
 antigen apply
 
 unsetopt auto_cd
+setopt GLOB_DOTS
 
 #-----------------------------------------------
 # Misc
