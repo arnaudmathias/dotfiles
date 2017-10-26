@@ -15,11 +15,12 @@ Plug 'daviesjamie/vim-base16-lightline'
 Plug 'w0rp/ale'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'tpope/vim-sleuth'
+""Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-obsession'
 Plug 'rhysd/vim-clang-format'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'ledger/vim-ledger'
+Plug 'pbondoer/vim-42header'
 call plug#end()
 
 runtime ftplugin/man.vim
@@ -33,7 +34,7 @@ if filereadable(expand("~/.vimrc_background"))
     source ~/.vimrc_background
 endif
 
-set cursorline
+""set cursorline
 
 set splitbelow
 set splitright
