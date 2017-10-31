@@ -3,7 +3,6 @@ let mapleader = "\<Space>"
 call plug#begin('~/.vim/plugged')
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux-focus-events'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 Plug 'xolox/vim-misc'
@@ -21,6 +20,9 @@ Plug 'rhysd/vim-clang-format'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'ledger/vim-ledger'
 Plug 'pbondoer/vim-42header'
+Plug 'craigemery/vim-autotag'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 runtime ftplugin/man.vim

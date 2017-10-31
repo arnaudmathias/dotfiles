@@ -24,6 +24,8 @@ cmake_install.cmake
 *.cmi
 *.cmx
 
+tags
+
 # dotfile own gitignore
 .tmux/plugins/
 .vim/plugged
