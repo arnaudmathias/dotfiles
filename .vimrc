@@ -32,8 +32,8 @@ filetype indent on
 syntax enable
 
 if filereadable(expand("~/.vimrc_background"))
-    let base16colorspace=256
-    source ~/.vimrc_background
+	let base16colorspace=256
+	source ~/.vimrc_background
 endif
 
 ""set cursorline
@@ -45,24 +45,24 @@ set wildmenu
 set wildmode=longest:list,full
 set wildignore=*.o,*~,*.pyc
 if has("win16") || has("win32")
-    set wildignore+=.git\*,.hg\*,.svn\*
+	set wildignore+=.git\*,.hg\*,.svn\*
 else
-    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+	set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 endif
 
 if exists('$SUDO_USER')
-    set nobackup
-    set nowritebackup
+	set nobackup
+	set nowritebackup
 else
-    set directory=~/.vim/tmp/backup//
-    set directory+=.
+	set directory=~/.vim/tmp/backup//
+	set directory+=.
 endif
 
 if exists('$SUDO_USER')
-    set noswapfile
+	set noswapfile
 else
-    set directory=~/.vim/tmp/swap//
-    set directory+=.
+	set directory=~/.vim/tmp/swap//
+	set directory+=.
 endif
 
 set mouse=n
@@ -106,18 +106,15 @@ set ignorecase
 set laststatus=2
 
 set path=$PWD/**
-com! FormatJSON %!python -m json.tool
-autocmd BufWritePre * :%s/\s\+$//e
 
 let g:lightline = {
-	    \	'colorscheme': 'base16'
-	    \ }
+			\	'colorscheme': 'base16'
+			\ }
 
 if has("autocmd")
-    autocmd bufwritepost .vimrc source $MYVIMRC
+	autocmd bufwritepost .vimrc source $MYVIMRC
+	autocmd BufWritePre * :%s/\s\+$//e
 endif
-
-au BufNewFile,BufRead *.ldg,*.ledger setf ledger | comp ledger
 
 let g:netrw_browse_split = 1
 let g:netrw_banner = 0
@@ -129,18 +126,8 @@ nnoremap <Leader>v :Vexplore<CR>
 
 " ALE LINTER CONFIG
 let g:ale_sign_column_always = 0
-let g:ale_cpp_gcc_options = '-std=c++11'
-let g:ale_cpp_clang_options = '-std=c++11'
-let g:ale_cpp_clangtidy_options  = '-std=c++11'
-
-let g:ale_c_gcc_options = '-Wall -Werror -Wextra'
-let g:ale_c_clang_options = '-Wall -Werror -Wextra'
-let g:ale_c_clangtidy_options  = '-Wall -Werror -Wextra'
 
 " UTILS SNIP CONFIG
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-let g:clang_format#cod_style = 'google'
-nmap <Leader>C :ClangFormatAutoToggle<CR>
