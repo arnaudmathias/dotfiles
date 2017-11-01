@@ -21,7 +21,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'ledger/vim-ledger'
 Plug 'pbondoer/vim-42header'
 Plug 'craigemery/vim-autotag'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 call plug#end()
 
