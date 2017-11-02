@@ -4,6 +4,7 @@ set -e
 # Regular dotfiles .vimrc, etc
 DOTFILES="	.vimrc
 			.zshrc
+			.zshenv
 			.zsh
 			.vsvimrc
 			.tmux.conf
