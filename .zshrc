@@ -65,6 +65,8 @@ if [[ $IS_MAC -eq 1 ]]; then
 	source $HOME/.brewconfig.zsh
 fi
 
+[ ! -d $HOME/.zplug ] && git clone https://github.com/zplug/zplug $HOME/.zplug
+
 if [[ ! -f ~/.vim/autoload/plug.vim ]]; then
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
