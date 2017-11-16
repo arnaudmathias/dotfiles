@@ -38,8 +38,7 @@ if filereadable(expand("~/.vimrc_background"))
 	source ~/.vimrc_background
 endif
 
-""set cursorline
-
+set autoread
 set splitbelow
 set splitright
 set langmenu=en
