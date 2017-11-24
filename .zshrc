@@ -50,7 +50,7 @@ bindkey "\e[B" history-beginning-search-forward-end # cursor down
 #
 
 # Automaticly launch TMUX (Only at home)
-if [[ $IS_MAC -eq 0 ]] && [[ -z "$TMUX" ]] && [ "$(id - u)" != "0" ]; then
+if [[ $IS_MAC -eq 0 ]] && [[ -z "$TMUX" ]] ; then
 	ID="`tmux ls | grep -vm1 attached | cut -d: -f1`"
 	if [[ -z "$ID" ]]
 	then
