@@ -15,8 +15,6 @@ Plug 'fidian/hexmode'
 Plug 'chriskempson/base16-vim'
 Plug 'daviesjamie/vim-base16-lightline'
 Plug 'w0rp/ale'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'tpope/vim-obsession'
 Plug 'rhysd/vim-clang-format'
 Plug 'terryma/vim-multiple-cursors'
@@ -25,6 +23,9 @@ Plug 'pbondoer/vim-42header'
 Plug 'craigemery/vim-autotag'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+if has("python") || has("python3")
+	Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+endif
 call plug#end()
 
 runtime ftplugin/man.vim
@@ -141,12 +142,6 @@ vnoremap <silent> # :<C-U>
 " Source: https://stackoverflow.com/questions/290465/vim-how-to-paste-over-without-overwriting-register#answer-31411902
 xnoremap p "_dP
 
-let g:netrw_browse_split = 1
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_winsize = 20
 nnoremap <Leader>v :Vexplore<CR>
 
 " ALE LINTER CONFIG
