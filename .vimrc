@@ -15,8 +15,6 @@ Plug 'fidian/hexmode'
 Plug 'chriskempson/base16-vim'
 Plug 'daviesjamie/vim-base16-lightline'
 Plug 'w0rp/ale'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'tpope/vim-obsession'
 Plug 'rhysd/vim-clang-format'
 Plug 'terryma/vim-multiple-cursors'
@@ -25,6 +23,9 @@ Plug 'pbondoer/vim-42header'
 Plug 'craigemery/vim-autotag'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+if has("python") || has("python3")
+	Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+endif
 call plug#end()
 
 runtime ftplugin/man.vim
@@ -109,7 +110,14 @@ set laststatus=2
 set path=$PWD/**
 
 let g:lightline = {
-			\	'colorscheme': 'base16'
+			\	'colorscheme': 'base16',
+			\	'active': {
+			\   'left': [ [ 'mode', 'paste' ],
+			\             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+			\	},
+			\	'component_function': {
+			\   	'gitbranch': 'fugitive#head'
+			\ 	},
 			\ }
 
 if has("autocmd")
@@ -120,26 +128,20 @@ endif
 "Search for selected text, forwards or backwards.
 "Source: http://vim.wikia.com/wiki/Search_for_visually_selected_text
 vnoremap <silent> * :<C-U>
-            \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-            \gvy/<C-R><C-R>=substitute(
-            \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-            \gV:call setreg('"', old_reg, old_regtype)<CR>
+			\let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+			\gvy/<C-R><C-R>=substitute(
+			\escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+			\gV:call setreg('"', old_reg, old_regtype)<CR>
 vnoremap <silent> # :<C-U>
-            \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-            \gvy?<C-R><C-R>=substitute(
-            \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-            \gV:call setreg('"', old_reg, old_regtype)<CR>
+			\let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+			\gvy?<C-R><C-R>=substitute(
+			\escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+			\gV:call setreg('"', old_reg, old_regtype)<CR>
 
 " Don't overwrite register on paste
 " Source: https://stackoverflow.com/questions/290465/vim-how-to-paste-over-without-overwriting-register#answer-31411902
 xnoremap p "_dP
 
-let g:netrw_browse_split = 1
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_winsize = 20
 nnoremap <Leader>v :Vexplore<CR>
 
 " ALE LINTER CONFIG
