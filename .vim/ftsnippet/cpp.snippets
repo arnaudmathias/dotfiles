@@ -1,0 +1,32 @@
+# Canonical form class
+snippet clh
+class ${1:`vim_snippets#Filename('$1', 'name')`} {
+	public:
+		$1(void);
+		$1($1 const & src);
+		virtual ~$1(void);
+		$1 & operator=($1 const & rhs);
+};
+endsnippet
+snippet clc
+#include "$1.hpp"
+
+${1:`vim_snippets#Filename('$1', 'name')`}::$1(void) {
+
+}
+
+$1::$1($1 const & src) {
+	*this = src;
+}
+
+$1::~$1(void) {
+
+}
+
+$1 &	$1::operator=($1 const & rhs) {
+	if (this != &rhs){
+
+	}
+	return (*this);
+}
+endsnippet
