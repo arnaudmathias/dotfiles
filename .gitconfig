@@ -1,12 +1,12 @@
 [user]
-	name = IndieDriver
+	name = indiedriver
 	email = amathias63@gmail.com
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore
 [credential]
 	helper = cache --timeout=28800
-[url "https://IndieDriver@github.com"]
+[url "https://indiedriver@github.com"]
 	insteadOf = https://github.com
 [diff]
 	tool = vimdiff
