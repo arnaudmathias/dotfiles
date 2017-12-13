@@ -16,7 +16,7 @@ DOTFILES="	.vimrc
 			.ledgerrc"
 
 # Configuration file in .config
-CONFFILES="	.config/mpv"
+CONFFILES="	mpv"
 
 for path in $DOTFILES; do
 	echo $path;
@@ -25,11 +25,12 @@ for path in $DOTFILES; do
 	fi
 done
 
+mkdir -p ~/.config
 
 for path in $CONFFILES; do
 	echo $path;
 	if [ ! -h ~/$path ]; then
-		ln -vis ~/.dotfiles/$path ~/.config
+		ln -vis ~/.dotfiles/.config/$path ~/.config/$path
 	fi
 done
 
