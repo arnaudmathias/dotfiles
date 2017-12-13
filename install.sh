@@ -28,8 +28,8 @@ done
 mkdir -p ~/.config
 
 for path in $CONFFILES; do
-	echo $path;
-	if [ ! -h ~/$path ]; then
+	echo .config/$path;
+	if [ ! -h ~/.config/$path ]; then
 		ln -vis ~/.dotfiles/.config/$path ~/.config/$path
 	fi
 done

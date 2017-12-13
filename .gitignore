@@ -32,3 +32,4 @@ tags
 .zsh/base16-shell
 .vim/tmp
 .config/mpv/watch_later/
+.gdbinit
