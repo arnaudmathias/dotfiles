@@ -61,8 +61,7 @@ if [[ $IS_MAC -eq 0 ]] && [[ -z "$TMUX" ]] ; then
 fi
 
 if [[ $IS_MAC -eq 1 ]]; then
-	# Load Homebrew config script, needed for 42
-	source $HOME/.brewconfig.zsh
+	export PATH=$HOME/.brew/bin:$PATH
 fi
 
 [ ! -d $HOME/.zplug ] && git clone https://github.com/zplug/zplug $HOME/.zplug
@@ -74,4 +73,3 @@ fi
 
 # OPAM configuration
 . /Users/amathias/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-

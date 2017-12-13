@@ -7,3 +7,5 @@ export PAGER=less
 export HISTSIZE=10000
 export HISTFILE="$HOME/.zsh_history"
 export SAVEHIST=$HISTSIZE
+
+export KEYTIMEOUT=1

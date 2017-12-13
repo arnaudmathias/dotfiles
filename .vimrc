@@ -92,6 +92,7 @@ filetype indent on
 set cindent
 set smartcase
 set smartindent
+set timeoutlen=1000 ttimeoutlen=0
 
 set backspace=indent,eol,start
 set shiftwidth=4
