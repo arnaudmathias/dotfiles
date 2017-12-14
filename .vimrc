@@ -21,7 +21,6 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'ledger/vim-ledger'
 Plug 'pbondoer/vim-42header'
 Plug 'craigemery/vim-autotag'
-Plug 'vim-scripts/a.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 if has("python") || has("python3")
