@@ -9,3 +9,7 @@ function dot_update() {
 	curl -fo .gdbinit https://raw.githubusercontent.com/gdbinit/Gdbinit/master/gdbinit;
 	cd -;
 }
+
+function music_import() {
+	ssh -p 1337 arnaud@192.168.0.2 -t 'cd /volume1/music/Import; beet import .;bash -l';
+}
