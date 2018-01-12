@@ -3,6 +3,7 @@ set -e
 
 # Regular dotfiles .vimrc, etc
 DOTFILES="	.vimrc
+      .vim
 			.zshrc
 			.zshenv
 			.zsh
