@@ -8,6 +8,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sleuth'
 Plug 'xolox/vim-misc'
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
@@ -23,6 +24,7 @@ Plug 'pbondoer/vim-42header'
 Plug 'craigemery/vim-autotag'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+Plug 'LucHermitte/alternate-lite' | Plug 'LucHermitte/lh-vim-lib'
 if has("python") || has("python3")
 	Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 endif
@@ -43,6 +45,7 @@ set autoread
 set splitbelow
 set splitright
 set langmenu=en
+set completeopt-=preview
 set wildmenu
 set wildmode=longest:list,full
 set wildignore=*.o,*~,*.pyc
@@ -77,7 +80,6 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 nnoremap <Leader><Leader> <C-^>
-nnoremap <Leader>o :only<CR>
 nnoremap <Leader>w :write<CR>
 nnoremap <Leader>x :xit<CR>
 
@@ -94,11 +96,14 @@ set smartindent
 set timeoutlen=1000 ttimeoutlen=0
 
 set backspace=indent,eol,start
-set shiftwidth=4
-set tabstop=4
 set scrolloff=7
 set shortmess+=A
 set switchbuf=usetab
+
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
+set expandtab
 
 set novisualbell
 set noerrorbells
