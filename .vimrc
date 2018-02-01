@@ -20,11 +20,12 @@ Plug 'tpope/vim-obsession'
 Plug 'rhysd/vim-clang-format'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'ledger/vim-ledger'
-Plug 'pbondoer/vim-42header'
+Plug 'pandark/42header.vim'
 Plug 'craigemery/vim-autotag'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'LucHermitte/alternate-lite' | Plug 'LucHermitte/lh-vim-lib'
+Plug 'maralla/completor.vim'
 if has("python") || has("python3")
 	Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 endif
