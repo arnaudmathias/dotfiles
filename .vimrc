@@ -88,7 +88,7 @@ nnoremap K :Man <cword><CR>
 
 set hidden
 set history=500
-set nu
+"set nu
 set autoindent
 filetype indent on
 set cindent
@@ -160,3 +160,6 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "ftsnippet"]
+
+let g:completor_auto_trigger = 0
+inoremap <expr> <C-a> pumvisible() ? "<C-N>" : "<C-R>=completor#do('complete')<CR>"
