@@ -1,4 +1,5 @@
-alias vi="vim"
+alias vim="nvim"
+alias vi="nvim"
 alias la="ls -la"
 
 # gsh shows the number of commits for the current repos for all developers

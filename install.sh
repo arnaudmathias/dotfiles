@@ -17,7 +17,8 @@ DOTFILES="  .vimrc
 	    .ledgerrc"
 
 # Configuration file in .config
-CONFFILES="	mpv"
+CONFFILES=" mpv
+	    nvim"
 
 for path in $DOTFILES; do
       echo $path;

@@ -72,7 +72,9 @@ else
 endif
 
 set mouse=n
-set ttymouse=xterm2
+if !has('nvim')
+	set ttymouse=xterm2
+endif
 
 imap jk <ESC>
 map <C-j> <C-W>j
