@@ -25,6 +25,7 @@ cmake_install.cmake
 *.cmx
 
 tags
+vim-markdown-preview.html
 
 # dotfile own gitignore
 .tmux/plugins/
