@@ -26,6 +26,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'LucHermitte/alternate-lite' | Plug 'LucHermitte/lh-vim-lib'
 Plug 'maralla/completor.vim'
+Plug 'JamshedVesuna/vim-markdown-preview'
 if has("python") || has("python3")
 	Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 endif
@@ -165,3 +166,8 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips", "ftsnippet"]
 
 let g:completor_auto_trigger = 0
 inoremap <expr> <C-a> pumvisible() ? "<C-N>" : "<C-R>=completor#do('complete')<CR>"
+
+let vim_markdown_preview_github=1
+let vim_markdown_preview_hotkey='<C-m>'
+let vim_markdown_preview_browser='Google Chrome'
+let vim_markdown_preview_toggle=1
