@@ -2,7 +2,7 @@
 	name = indiedriver
 	email = amathias63@gmail.com
 [core]
-	editor = vim
+	editor = nvim
 	excludesfile = ~/.gitignore
 [credential]
 	helper = cache --timeout=28800
