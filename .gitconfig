@@ -1,6 +1,6 @@
 [user]
 	name = indiedriver
-	email = amathias63@gmail.com
+	email = arndmathias@gmail.com
 [core]
 	editor = nvim
 	excludesfile = ~/.gitignore
