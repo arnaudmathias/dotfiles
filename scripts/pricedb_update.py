@@ -6,7 +6,7 @@ File: pricedb_update.py
 Author: indiedriver
 Email: arndmathias@gmail.com
 Github: https://github.com/indiedriver
-Description: Populate ledger .pricedb file with historical price data
+Description: Populate beancount price database file with historical price data
 """
 
 import os
@@ -17,10 +17,10 @@ import time
 import parse
 
 pricedb_path = os.environ['HOME'] + os.sep + ".pricedb"
-currencies = {'BTC', 'BCH', 'ETH', 'XRP'}
+currencies = {'BTC', 'BCH', 'ETH'}
 fiat_symbol = '€'
 fiat_query = 'EUR'
-start_at = '2017/01/01' # YYYY/MM/DD
+start_at = '2018/05/01' # YYYY/MM/DD
 
 def getTimestamp(datetime):
     return str(int(time.mktime(datetime.timetuple())))
@@ -39,8 +39,8 @@ def getHistoricalPrice(symbol, fiat, timestamp = ''):
 def writePriceDatabase(list):
     with open(pricedb_path, "w") as file:
         for entry_list in list:
-            file.write("P " + entry_list['date'].strftime("%Y/%m/%d %H:%M:%S") + " "
-                       + entry_list['symbol'] + " " + entry_list['price'] + entry_list['fiat_symbol'] + "\n")
+            file.write(entry_list['date'].strftime("%Y-%m-%d") + " price "
+                       + entry_list['symbol'] + " " + entry_list['price'] + " " + entry_list['fiat_symbol'] + "\n")
 
 def queryPrice(dt, cur):
     price = getHistoricalPrice(cur, fiat_query, getTimestamp(dt));
@@ -48,18 +48,18 @@ def queryPrice(dt, cur):
         "date": dt,
         "symbol": cur,
         "price":  str(price),
-        "fiat_symbol": fiat_symbol
+        "fiat_symbol": fiat_query
     }
     return (info)
 
 def main():
     content = []
-    parserExp = parse.compile("P {date} {time} {symbol} {value:g}{fiat_symbol}");
+    parserExp = parse.compile("{date} price {symbol} {value:g} {fiat_symbol}");
     if os.path.exists(pricedb_path):
         with open(pricedb_path, "r") as file:
             for line in file:
                 res = parserExp.parse(line);
-                dt = datetime.datetime.strptime(res['date'] + " " + res['time'], "%Y/%m/%d %H:%M:%S")
+                dt = datetime.datetime.strptime(res['date'], "%Y-%m-%d")
                 info = {
                     "date": dt,
                     "symbol": res['symbol'],
@@ -74,7 +74,7 @@ def main():
         cur_list = filter(lambda c: c['symbol'] == cur, content)
         for i in range(delta.days + 1):
             dt = startDate + datetime.timedelta(days=i)
-            res = filter(lambda date: date['date'].date() == dt.date(), cur_list)
+            res = list(filter(lambda date: date['date'].date() == dt.date(), cur_list))
             if not res:
                 res = queryPrice(dt, cur)
             else:
