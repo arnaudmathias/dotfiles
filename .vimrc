@@ -15,24 +15,13 @@ Plug 'itchyny/lightline.vim'
 Plug 'fidian/hexmode'
 Plug 'chriskempson/base16-vim'
 Plug 'daviesjamie/vim-base16-lightline'
-Plug 'w0rp/ale'
 Plug 'tpope/vim-obsession'
 Plug 'rhysd/vim-clang-format'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'ledger/vim-ledger'
-Plug 'pandark/42header.vim'
-Plug 'craigemery/vim-autotag'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'LucHermitte/alternate-lite' | Plug 'LucHermitte/lh-vim-lib'
-Plug 'maralla/completor.vim'
-Plug 'JamshedVesuna/vim-markdown-preview'
-if has("python") || has("python3")
-	Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-endif
+Plug 'airblade/vim-gitgutter'
 call plug#end()
-
-runtime ftplugin/man.vim
 
 filetype plugin on
 filetype indent on
@@ -43,6 +32,7 @@ if filereadable(expand("~/.vimrc_background"))
 	source ~/.vimrc_background
 endif
 
+set mouse=n
 set autoread
 set splitbelow
 set splitright
@@ -72,11 +62,6 @@ else
 	set directory+=.
 endif
 
-set mouse=n
-if !has('nvim')
-	set ttymouse=xterm2
-endif
-
 imap jk <ESC>
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -91,8 +76,9 @@ nnoremap K :Man <cword><CR>
 
 set hidden
 set history=500
-"set nu
 set autoindent
+set cursorline
+set autochdir
 filetype indent on
 set cindent
 set smartcase
@@ -117,8 +103,6 @@ set ignorecase
 
 set laststatus=2
 
-set path=$PWD/**
-
 let g:lightline = {
 			\	'colorscheme': 'base16',
 			\	'active': {
@@ -131,12 +115,11 @@ let g:lightline = {
 			\ }
 
 if has("autocmd")
-	autocmd bufwritepost .vimrc source $MYVIMRC
-	autocmd BufWritePre * :%s/\s\+$//e
+	autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 endif
 
-"Search for selected text, forwards or backwards.
-"Source: http://vim.wikia.com/wiki/Search_for_visually_selected_text
+"search for selected text, forwards or backwards.
+"source: http://vim.wikia.com/wiki/search_for_visually_selected_text
 vnoremap <silent> * :<C-U>
 			\let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
 			\gvy/<C-R><C-R>=substitute(
@@ -153,21 +136,3 @@ vnoremap <silent> # :<C-U>
 xnoremap p "_dP
 
 nnoremap <Leader>v :Vexplore<CR>
-
-" ALE LINTER CONFIG
-let g:ale_sign_column_always = 0
-let g:ale_set_highlights = 0
-
-" UTILS SNIP CONFIG
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "ftsnippet"]
-
-let g:completor_auto_trigger = 0
-inoremap <expr> <C-a> pumvisible() ? "<C-N>" : "<C-R>=completor#do('complete')<CR>"
-
-let vim_markdown_preview_github=1
-let vim_markdown_preview_hotkey='<C-m>'
-let vim_markdown_preview_browser='Google Chrome'
-let vim_markdown_preview_toggle=1

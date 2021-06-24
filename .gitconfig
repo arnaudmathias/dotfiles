@@ -1,13 +1,11 @@
 [user]
-	name = indiedriver
+	name = Arnaud Mathias 
 	email = arndmathias@gmail.com
 [core]
 	editor = nvim
 	excludesfile = ~/.gitignore
 [credential]
 	helper = cache --timeout=28800
-[url "https://indiedriver@github.com"]
-	insteadOf = https://github.com
 [diff]
 	tool = vimdiff
 [merge]

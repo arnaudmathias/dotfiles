@@ -11,7 +11,6 @@ source ~/.zplug/init.zsh
 zplug "chriskempson/base16-shell", as:plugin
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/colored-man-pages", from:oh-my-zsh
-zplug 'themes/pygmalion', as:theme, from:oh-my-zsh
 
 if ! zplug check --verbose; then
 	printf "Install? [y/N]: "
@@ -49,16 +48,6 @@ bindkey "\e[B" history-beginning-search-forward-end # cursor down
 # Misc
 #
 
-# Automaticly launch TMUX (Only at home)
-if [[ $IS_MAC -eq 0 ]] && [[ -z "$TMUX" ]] ; then
-	ID="`tmux ls | grep -vm1 attached | cut -d: -f1`"
-	if [[ -z "$ID" ]]
-	then
-		tmux new-session
-	else
-		tmux attach-session -t "$ID"
-	fi
-fi
 
 if [[ $IS_MAC -eq 1 ]]; then
 	export PATH=$HOME/.brew/bin:$PATH
@@ -70,6 +59,3 @@ if [[ ! -f ~/.vim/autoload/plug.vim ]]; then
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
-
-# OPAM configuration
-. /Users/amathias/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
