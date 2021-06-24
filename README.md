@@ -1,6 +1,6 @@
 # dotfiles
 ```
-git clone https://github.com/IndieDriver/dotfiles.git ~/.dotfiles --recursive
+git clone https://github.com/arnaudmathias/dotfiles.git ~/.dotfiles --recursive
 cd ~/.dotfiles
 sh install.sh
 ```
