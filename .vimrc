@@ -41,6 +41,7 @@ set completeopt-=preview
 set wildmenu
 set wildmode=longest:list,full
 set wildignore=*.o,*~,*.pyc
+set wildignorecase
 if has("win16") || has("win32")
 	set wildignore+=.git\*,.hg\*,.svn\*
 else
@@ -71,14 +72,15 @@ map <C-l> <C-W>l
 nnoremap <Leader><Leader> <C-^>
 nnoremap <Leader>w :write<CR>
 nnoremap <Leader>x :xit<CR>
-
-nnoremap K :Man <cword><CR>
+nnoremap <silent> <leader>ff :Files<CR>
+nnoremap <silent> <leader>hh :History<CR>
+nnoremap <silent> <leader>ss :Rg <C-R>=expand("<cword>")<CR><CR> 
+nnoremap <Leader>v :Vexplore<CR>
 
 set hidden
 set history=500
 set autoindent
 set cursorline
-set autochdir
 filetype indent on
 set cindent
 set smartcase
@@ -135,4 +137,3 @@ vnoremap <silent> # :<C-U>
 " Source: https://stackoverflow.com/questions/290465/vim-how-to-paste-over-without-overwriting-register#answer-31411902
 xnoremap p "_dP
 
-nnoremap <Leader>v :Vexplore<CR>
