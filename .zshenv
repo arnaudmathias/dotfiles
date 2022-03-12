@@ -11,3 +11,5 @@ export HISTFILE="$HOME/.zsh_history"
 export SAVEHIST=$HISTSIZE
 
 export KEYTIMEOUT=1
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+

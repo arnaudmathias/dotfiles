@@ -137,3 +137,6 @@ vnoremap <silent> # :<C-U>
 " Source: https://stackoverflow.com/questions/290465/vim-how-to-paste-over-without-overwriting-register#answer-31411902
 xnoremap p "_dP
 
+let g:csv_no_conceal = 1
+"let g:csv_delim = ';'
+

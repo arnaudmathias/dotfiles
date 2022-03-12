@@ -16,5 +16,5 @@ plugins: convert fetchart missing
 
 convert:
   format: mp3
-  max_bitrate: 256
+  max_bitrate: 320
   copy_album_art: yes

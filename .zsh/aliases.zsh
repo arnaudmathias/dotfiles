@@ -10,3 +10,5 @@ alias gsh="git shortlog | grep -E '^[ ]+\w+' | wc -l"
 alias gu="git shortlog | grep -E '^[^ ]'"
 
 alias ocaml="rlwrap ocaml"
+
+alias soff="sleep 0.2 ; xset dpms force off"
