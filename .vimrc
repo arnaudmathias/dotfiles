@@ -21,6 +21,15 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'LucHermitte/alternate-lite' | Plug 'LucHermitte/lh-vim-lib'
 Plug 'airblade/vim-gitgutter'
+Plug 'rust-lang/rust.vim'
+Plug 'dense-analysis/ale'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 call plug#end()
 
 filetype plugin on
@@ -72,9 +81,9 @@ map <C-l> <C-W>l
 nnoremap <Leader><Leader> <C-^>
 nnoremap <Leader>w :write<CR>
 nnoremap <Leader>x :xit<CR>
-nnoremap <silent> <leader>ff :Files<CR>
+nnoremap <silent> <leader>ff :GFiles<CR>
 nnoremap <silent> <leader>hh :History<CR>
-nnoremap <silent> <leader>ss :Rg <C-R>=expand("<cword>")<CR><CR> 
+nnoremap <silent> <leader>ss :Rg <C-R>=expand("<cword>")<CR><CR>
 nnoremap <Leader>v :Vexplore<CR>
 
 set hidden
@@ -139,4 +148,28 @@ xnoremap p "_dP
 
 let g:csv_no_conceal = 1
 "let g:csv_delim = ';'
+
+let g:deoplete#enable_at_startup = 1
+
+let g:ale_linters = {'rust': ['analyzer']}
+
+"let g:ale_set_highlights = 0
+"highlight ALEError ctermbg=none cterm=underline
+highlight ALEWarning ctermbg=DarkMagenta
+highlight ALEError ctermbg=DarkMagenta
+
+highlight ALEError ctermbg=none cterm=underline
+highlight ALEWarning ctermbg=none cterm=underline
+
+highlight ALEError guibg=green ctermbg=none cterm=underline
+highlight ALEWarning guibg=green ctermbg=none cterm=underline
+
+"highlight ALEError guibg=green ctermbg=none cterm=undercurl
+"highlight ALEWarning guibg=green ctermbg=none cterm=undercurl
+
+augroup filetype_rust
+	au!
+	au BufRead,BufNewFile *.rs nnoremap K :ALEHover<CR>
+	au BufRead,BufNewFile *.rs nnoremap <C-]> :ALEGoToDefinition<CR>
+augroup END
 
