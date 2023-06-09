@@ -27,6 +27,8 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim', tag = '0.1.1',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
+  -- use { 'github/copilot.vim' }
+  use { 'zbirenbaum/copilot.lua'}
   use { 'tpope/vim-fugitive' }
   use { 'junegunn/gv.vim' }
   use {
@@ -41,8 +43,14 @@ return require('packer').startup(function(use)
   }
   use {
     "mcchrish/zenbones.nvim",
-    requires = "rktjmp/lush.nvim"
+    requires = 'rktjmp/lush.nvim'
   }
+  use {
+    'LucHermitte/alternate-lite',
+    requires = 'LucHermitte/lh-vim-lib'
+  }
+  use { 'peterhoeg/vim-qml' }
+  use { 'rgroli/other.nvim' }
   use {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v1.x',
@@ -68,7 +76,6 @@ return require('packer').startup(function(use)
       {'rafamadriz/friendly-snippets'},
     }
   }
-
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

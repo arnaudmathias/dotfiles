@@ -18,7 +18,7 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undofile = true
 
-vim.opt.hlsearch = false
+vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
 vim.opt.scrolloff = 7
@@ -61,7 +61,7 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
 require('lualine').setup {
     options = {
-        icons_enabled = false,
+        icons_enabled = true,
         theme = 'modus-vivendi',
         component_separators = '|',
         section_separators = '',
@@ -90,6 +90,8 @@ local lsp = require('lsp-zero').preset({
   suggest_lsp_servers = false,
 })
 
+require('lspconfig').metals.setup{}
+
 lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
@@ -113,5 +115,27 @@ end)
 lsp.nvim_workspace()
 
 lsp.setup()
+
+require("copilot").setup({
+  panel = {
+    auto_refresh = true,
+    keymap = {
+      accept = "<CR>",
+      jump_prev = "[[",
+      jump_next = "]]",
+      refresh = "gr",
+      open = "<M-CR>",
+    },
+  },
+  suggestion = {
+    auto_trigger = true,
+    keymap = {
+      accept = "<M-l>",
+      prev = "<M-[>",
+      next = "<M-]>",
+      dismiss = "<C-]>",
+    },
+  },
+})
 
 
