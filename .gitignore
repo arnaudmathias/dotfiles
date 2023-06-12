@@ -34,3 +34,4 @@ vim-markdown-preview.html
 .vim/tmp
 .config/mpv/watch_later/
 .gdbinit
+.config/nvim/plugin/

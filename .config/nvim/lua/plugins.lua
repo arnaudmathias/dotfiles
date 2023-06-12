@@ -23,34 +23,44 @@ vim.cmd([[
 
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
-  use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.1',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  }
-  -- use { 'github/copilot.vim' }
-  use { 'zbirenbaum/copilot.lua'}
+  -- Git
   use { 'tpope/vim-fugitive' }
   use { 'junegunn/gv.vim' }
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-  }
-  -- syntax highlighting
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSupdate',
-    --config = function() require('eric.plugins.treesitter') end
-  }
+
+  -- Theme
   use {
     "mcchrish/zenbones.nvim",
     requires = 'rktjmp/lush.nvim'
   }
   use {
-    'LucHermitte/alternate-lite',
-    requires = 'LucHermitte/lh-vim-lib'
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+    config = function () require('plugins.lualine') end,
   }
-  use { 'peterhoeg/vim-qml' }
+
+  -- syntax highlighting
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSupdate',
+    config = function() require('plugins.treesitter') end
+  }
+
+  -- Fuzzy finder
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.2',
+    requires = { {'nvim-lua/plenary.nvim'} },
+    config = function () require('plugins.telescope') end,
+  }
+
+  -- Misc
+  use {
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
+    event = 'InsertEnter',
+    config = function() require('plugins.copilot') end,
+  }
   use { 'rgroli/other.nvim' }
+  use { 'dstein64/vim-startuptime' }
   use {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v1.x',
@@ -74,7 +84,8 @@ return require('packer').startup(function(use)
       -- Snippets
       {'L3MON4D3/LuaSnip'},
       {'rafamadriz/friendly-snippets'},
-    }
+    },
+    config = function() require('plugins.lsp') end
   }
 
   -- Automatically set up your configuration after cloning packer.nvim
