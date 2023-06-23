@@ -59,7 +59,14 @@ return require('packer').startup(function(use)
     event = 'InsertEnter',
     config = function() require('plugins.copilot') end,
   }
-  use { 'rgroli/other.nvim' }
+  use {
+    'editorconfig/editorconfig-vim',
+    config = function() require('plugins.editorconfig') end,
+  }
+  use {
+    'LucHermitte/alternate-lite',
+    requires = 'LucHermitte/lh-vim-lib'
+  }
   use { 'dstein64/vim-startuptime' }
   use {
     'VonHeikemen/lsp-zero.nvim',

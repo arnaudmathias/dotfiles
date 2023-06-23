@@ -28,6 +28,7 @@ vim.keymap.set('v', '<leader>gr', function()
 end)
 
 -- Git Pickers
+vim.keymap.set('n', '<leader>fgf', builtin.git_files, {})
 vim.keymap.set('n', '<leader>fgc', builtin.git_commits, {})
 vim.keymap.set('n', '<leader>fgbc', builtin.git_bcommits, {})
 vim.keymap.set('n', '<leader>fgb', builtin.git_branches, {})
