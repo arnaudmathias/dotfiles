@@ -4,6 +4,8 @@ require('plugins')
 
 vim.opt.updatetime = 100
 
+vim.opt.list = true
+
 vim.opt.mouse = 'n'
 vim.opt.autoread = true
 vim.opt.splitbelow = false
@@ -30,7 +32,7 @@ vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 
-vim.cmd [[colorscheme zenbones]]
+vim.cmd [[colorscheme catppuccin-macchiato]]
 
 vim.opt.number = true
 vim.opt.relativenumber = true

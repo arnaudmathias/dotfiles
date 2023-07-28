@@ -22,7 +22,7 @@ vim.cmd([[
 ]])
 
 return require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
+  use { 'wbthomason/packer.nvim' }
   -- Git
   use { 'tpope/vim-fugitive' }
   use { 'junegunn/gv.vim' }
@@ -32,6 +32,7 @@ return require('packer').startup(function(use)
     "mcchrish/zenbones.nvim",
     requires = 'rktjmp/lush.nvim'
   }
+  use { "catppuccin/nvim", as = "catppuccin" }
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'nvim-tree/nvim-web-devicons', opt = true },
@@ -54,11 +55,18 @@ return require('packer').startup(function(use)
 
   -- Misc
   use {
-    'zbirenbaum/copilot.lua',
-    cmd = 'Copilot',
-    event = 'InsertEnter',
-    config = function() require('plugins.copilot') end,
+    'lukas-reineke/indent-blankline.nvim',
+    config = function () require('plugins.indent') end,
   }
+  use {
+    'zbirenbaum/copilot.lua',
+     cmd = 'Copilot',
+     cond = false,
+     event = 'InsertEnter',
+     config = function() require('plugins.copilot') end,
+  }
+  }
+  use { 'Civitasv/cmake-tools.nvim' }
   use {
     'editorconfig/editorconfig-vim',
     config = function() require('plugins.editorconfig') end,
