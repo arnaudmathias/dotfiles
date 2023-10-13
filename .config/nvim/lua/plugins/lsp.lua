@@ -27,6 +27,18 @@ end)
 
 require('lspconfig').metals.setup{}
 
+require('lspconfig').ccls.setup{
+  init_options = {
+    --compilationDatabaseDirectory = "buildcomp";
+    index = {
+      threads = 0;
+    };
+    clang = {
+      excludeArgs = { "-fms-extensions -fms-compatibility -fdelayed-template-parsing" } ;
+    };
+  }
+}
+
 lsp.nvim_workspace()
 
 lsp.setup()

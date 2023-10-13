@@ -1,85 +1,95 @@
--- install packer if not installed on this machine
-local ensure_packer = function()
-    local fn = vim.fn
-    local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-    if fn.empty(fn.glob(install_path)) > 0 then
-        fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
-        vim.cmd [[packadd packer.nvim]]
-        return true
-    end
-    return false
+-- install lazy if not installed on this machine
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
 -- first time startup?
-local packer_bootstrap = ensure_packer()
+-- local packer_bootstrap = ensure_packer()
 
--- autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]])
 
-return require('packer').startup(function(use)
-  use { 'wbthomason/packer.nvim' }
+require('lazy').setup({
   -- Git
-  use { 'tpope/vim-fugitive' }
-  use { 'junegunn/gv.vim' }
+  { 'tpope/vim-fugitive' },
+  {
+    'tommcdo/vim-fubitive',
+    config = function() require('plugins.fubitive') end,
+  },
+  { 'junegunn/gv.vim' },
 
   -- Theme
-  use {
+  {
     "mcchrish/zenbones.nvim",
-    requires = 'rktjmp/lush.nvim'
-  }
-  use { "catppuccin/nvim", as = "catppuccin" }
-  use {
+    dependencies = 'rktjmp/lush.nvim'
+  },
+  { "catppuccin/nvim", as = "catppuccin" },
+  {
     'nvim-lualine/lualine.nvim',
-    requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+    dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
     config = function () require('plugins.lualine') end,
-  }
+  },
 
   -- syntax highlighting
-  use {
+  {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSupdate',
     config = function() require('plugins.treesitter') end
-  }
+  },
 
   -- Fuzzy finder
-  use {
+  {
     'nvim-telescope/telescope.nvim', tag = '0.1.2',
-    requires = { {'nvim-lua/plenary.nvim'} },
+    dependencies = { {'nvim-lua/plenary.nvim'} },
     config = function () require('plugins.telescope') end,
-  }
+  },
 
   -- Misc
-  use {
+  { 'Darazaki/indent-o-matic' },
+  {
     'lukas-reineke/indent-blankline.nvim',
+    main = "ibl",
+    opts = {},
     config = function () require('plugins.indent') end,
-  }
-  use {
+  },
+  {
     'zbirenbaum/copilot.lua',
      cmd = 'Copilot',
      cond = false,
      event = 'InsertEnter',
      config = function() require('plugins.copilot') end,
-  }
-  }
-  use { 'Civitasv/cmake-tools.nvim' }
-  use {
+  },
+  {
+    'mfussenegger/nvim-dap',
+    config = function() require('plugins.dap') end,
+  },
+  { 'mxsdev/nvim-dap-vscode-js' },
+  {
+    'microsoft/vscode-js-debug',
+    opt = true,
+    run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out" 
+  },
+  { 'Civitasv/cmake-tools.nvim' },
+  {
     'editorconfig/editorconfig-vim',
     config = function() require('plugins.editorconfig') end,
-  }
-  use {
+  },
+  {
     'LucHermitte/alternate-lite',
-    requires = 'LucHermitte/lh-vim-lib'
-  }
-  use { 'dstein64/vim-startuptime' }
-  use {
+    dependencies = 'LucHermitte/lh-vim-lib'
+  },
+  { 'dstein64/vim-startuptime' },
+  {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v1.x',
-    requires = {
+    dependencies = {
       -- LSP Support
       {'neovim/nvim-lspconfig'},
       {
@@ -101,13 +111,7 @@ return require('packer').startup(function(use)
       {'rafamadriz/friendly-snippets'},
     },
     config = function() require('plugins.lsp') end
-  }
-
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if packer_bootstrap then
-    require('packer').sync()
-  end
-end)
+  },
+})
 
 
