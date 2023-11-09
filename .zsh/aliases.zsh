@@ -12,3 +12,7 @@ alias gu="git shortlog | grep -E '^[^ ]'"
 alias ocaml="rlwrap ocaml"
 
 alias soff="sleep 0.2 ; xset dpms force off"
+
+alias gmovies="cd /mnt/nas/movies/"
+alias gshow="cd '/mnt/nas/video/TV Shows/'"
+alias gmusic="cd /mnt/nas/music/Library/"

@@ -32,6 +32,8 @@ vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 
+vim.cmd([[autocmd FileType * set formatoptions-=ro]])
+
 vim.cmd [[colorscheme catppuccin-macchiato]]
 
 vim.opt.number = true

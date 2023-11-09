@@ -17,8 +17,14 @@ DOTFILES="  .vimrc
 	    .ledgerrc"
 
 # Configuration file in .config
-CONFFILES=" mpv
-	    nvim"
+CONFFILES=" 
+  alacritty
+  autorandr
+  beets
+  i3
+  mpv
+  nvim"
+
 
 for path in $DOTFILES; do
       echo $path;
@@ -32,7 +38,10 @@ mkdir -p ~/.config
 for path in $CONFFILES; do
       echo .config/$path;
       if [ ! -h ~/.config/$path ]; then
-	    ln -vis ~/.dotfiles/.config/$path ~/.config/$path
+	      ln -vis ~/.dotfiles/.config/$path ~/.config/$path
+        echo "symlink to .config/$path created"
+      else
+        echo ".config/$path already exist"
       fi
 done
 

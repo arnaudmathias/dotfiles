@@ -35,3 +35,4 @@ vim-markdown-preview.html
 .config/mpv/watch_later/
 .gdbinit
 .config/nvim/plugin/
+.config/nvim/lazy-lock.json

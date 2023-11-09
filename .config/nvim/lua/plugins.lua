@@ -21,6 +21,7 @@ require('lazy').setup({
   { 'tpope/vim-fugitive' },
   {
     'tommcdo/vim-fubitive',
+    enabled = false,
     config = function() require('plugins.fubitive') end,
   },
   { 'junegunn/gv.vim' },
@@ -52,6 +53,12 @@ require('lazy').setup({
   },
 
   -- Misc
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {},
+    config = function () require('plugins.trouble') end,
+  },
   { 'Darazaki/indent-o-matic' },
   {
     'lukas-reineke/indent-blankline.nvim',
@@ -59,13 +66,7 @@ require('lazy').setup({
     opts = {},
     config = function () require('plugins.indent') end,
   },
-  {
-    'zbirenbaum/copilot.lua',
-     cmd = 'Copilot',
-     cond = false,
-     event = 'InsertEnter',
-     config = function() require('plugins.copilot') end,
-  },
+  { 'elkowar/yuck.vim' },
   {
     'mfussenegger/nvim-dap',
     config = function() require('plugins.dap') end,
@@ -107,7 +108,7 @@ require('lazy').setup({
       {'hrsh7th/cmp-nvim-lua'},
 
       -- Snippets
-      {'L3MON4D3/LuaSnip'},
+      {'L3MON4D3/LuaSnip', version = "v2.*", build = 'make install_jsregexp'},
       {'rafamadriz/friendly-snippets'},
     },
     config = function() require('plugins.lsp') end
