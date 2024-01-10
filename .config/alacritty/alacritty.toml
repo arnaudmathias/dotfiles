@@ -1,0 +1,26 @@
+import = ["/home/arnaud/.config/alacritty/themes/catppuccin-macchiato.toml"]
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 14
+
+[font.bold]
+family = "Iosevka Term SS03"
+style = "Bold"
+
+[font.bold_italic]
+family = "Iosevka Term SS03"
+style = "Bold Italic"
+
+[font.italic]
+family = "Iosevka Term SS03"
+style = "Italic"
+
+[font.normal]
+family = "Iosevka Term SS03"
+style = "Regular"
+
+[window]
+decorations = "full"
