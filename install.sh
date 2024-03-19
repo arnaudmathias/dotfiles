@@ -23,7 +23,8 @@ CONFFILES="
   beets
   i3
   mpv
-  nvim"
+  nvim
+  waybar"
 
 
 for path in $DOTFILES; do
