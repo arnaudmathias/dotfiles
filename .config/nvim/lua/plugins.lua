@@ -59,6 +59,11 @@ require('lazy').setup({
     opts = {},
     config = function () require('plugins.trouble') end,
   },
+  {
+    "kylechui/nvim-surround",
+    version = "*",
+    event = "VeryLazy",
+  },
   { 'Darazaki/indent-o-matic' },
   {
     'lukas-reineke/indent-blankline.nvim',
@@ -103,13 +108,12 @@ require('lazy').setup({
       {'hrsh7th/nvim-cmp'},
       {'hrsh7th/cmp-buffer'},
       {'hrsh7th/cmp-path'},
-      {'saadparwaiz1/cmp_luasnip'},
       {'hrsh7th/cmp-nvim-lsp'},
       {'hrsh7th/cmp-nvim-lua'},
 
       -- Snippets
-      {'L3MON4D3/LuaSnip', version = "v2.*", build = 'make install_jsregexp'},
-      {'rafamadriz/friendly-snippets'},
+      {'hrsh7th/cmp-vsnip'},
+      {'hrsh7th/vim-vsnip'}
     },
     config = function() require('plugins.lsp') end
   },

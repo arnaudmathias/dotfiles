@@ -35,3 +35,6 @@ vim.keymap.set('n', '<leader>fgb', builtin.git_branches, {})
 vim.keymap.set('n', '<leader>fgs', builtin.git_status, {})
 vim.keymap.set('n', '<leader>fgst', builtin.git_stash, {})
 
+vim.keymap.set('n', '<leader>ls', builtin.lsp_document_symbols, {})
+vim.keymap.set('n', '<leader>lr', builtin.lsp_references, {})
+
