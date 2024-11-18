@@ -1,5 +1,10 @@
 local builtin = require('telescope.builtin')
 
+require('telescope').setup({
+  defaults = {
+    path_display = { "truncate" },
+  },
+})
 function vim.getVisualSelection()
   vim.cmd('noau normal! "vy"')
   local text = vim.fn.getreg('v')
@@ -36,5 +41,8 @@ vim.keymap.set('n', '<leader>fgs', builtin.git_status, {})
 vim.keymap.set('n', '<leader>fgst', builtin.git_stash, {})
 
 vim.keymap.set('n', '<leader>ls', builtin.lsp_document_symbols, {})
+vim.keymap.set('n', '<leader>lf', function()
+  builtin.lsp_document_symbols({ symbols = { 'method', 'function' }, show_line = true })
+end)
 vim.keymap.set('n', '<leader>lr', builtin.lsp_references, {})
 

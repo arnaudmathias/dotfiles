@@ -25,6 +25,10 @@ require('lazy').setup({
     config = function() require('plugins.fubitive') end,
   },
   { 'junegunn/gv.vim' },
+  {
+    'lewis6991/gitsigns.nvim',
+    config = function() require('plugins.gitsigns') end,
+  },
 
   -- Theme
   {
@@ -47,7 +51,7 @@ require('lazy').setup({
 
   -- Fuzzy finder
   {
-    'nvim-telescope/telescope.nvim', tag = '0.1.2',
+    'nvim-telescope/telescope.nvim', tag = '0.1.8',
     dependencies = { {'nvim-lua/plenary.nvim'} },
     config = function () require('plugins.telescope') end,
   },
