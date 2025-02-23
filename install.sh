@@ -14,7 +14,8 @@ DOTFILES="  .vimrc
 	    .gdbinit
 	    .lldbinit
 	    .gitignore
-	    .ledgerrc"
+	    .ledgerrc
+	    scripts"
 
 # Configuration file in .config
 CONFFILES=" 
