@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CONFIG="$HOME/.config/waybar/config"
+CONFIG="$HOME/.config/waybar/config.jsonc"
 STYLE="$HOME/.config/waybar/style.css"
 
 if [[ ! $(pgrep -x "waybar") = "" ]];
