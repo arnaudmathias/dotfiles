@@ -1,4 +1,3 @@
-import = ["/home/arnaud/.config/alacritty/themes/catppuccin-macchiato.toml"]
 
 [env]
 TERM = "xterm-256color"
@@ -24,3 +23,6 @@ style = "Regular"
 
 [window]
 decorations = "full"
+
+[general]
+import = ["~/.config/alacritty/themes/catppuccin-macchiato.toml"]
