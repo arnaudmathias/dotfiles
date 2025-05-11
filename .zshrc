@@ -29,6 +29,9 @@ setopt GLOB_DOTS
 setopt SHAREHISTORY
 setopt APPENDHISTORY
 setopt INCAPPENDHISTORY
+setopt HIST_IGNORE_ALL_DUPS
+
+HISTORY_IGNORE="(^ls|bg|fg|pwd|exit|cd ..)"
 
 unsetopt AUTO_CD
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
@@ -56,11 +59,11 @@ fi
 
 [ ! -d $HOME/.zplug ] && git clone https://github.com/zplug/zplug $HOME/.zplug
 
-if [[ ! -f ~/.vim/autoload/plug.vim ]]; then
-	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-fi
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+GPG_TTY=$(tty)
+export GPG_TTY
+
+export PATH="$PATH:$HOME/.local/bin:$HOME/.cargo/bin/"

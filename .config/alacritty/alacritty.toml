@@ -22,7 +22,7 @@ family = "Iosevka Term SS03"
 style = "Regular"
 
 [window]
-decorations = "full"
+decorations = "none"
 
 [general]
 import = ["~/.config/alacritty/themes/catppuccin-macchiato.toml"]

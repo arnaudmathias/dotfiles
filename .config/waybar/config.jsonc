@@ -22,6 +22,7 @@
         "window-rewrite-default": "",
         "window-rewrite": {
             "firefox": "",
+            "librewolf": "",
             "alacritty": "",
             "steam": "",
             "lollypop": "",
