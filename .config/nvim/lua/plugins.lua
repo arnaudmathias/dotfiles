@@ -86,7 +86,6 @@ require('lazy').setup({
     opt = true,
     run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out" 
   },
-  { 'Civitasv/cmake-tools.nvim' },
   {
     'editorconfig/editorconfig-vim',
     config = function() require('plugins.editorconfig') end,
@@ -96,6 +95,7 @@ require('lazy').setup({
     dependencies = 'LucHermitte/lh-vim-lib'
   },
   { 'dstein64/vim-startuptime' },
+  { 'lervag/wiki.vim' },
   {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v1.x',

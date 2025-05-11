@@ -34,7 +34,7 @@ vim.opt.expandtab = true
 
 vim.cmd([[autocmd FileType * set formatoptions-=ro]])
 
-vim.cmd [[colorscheme catppuccin-macchiato]]
+--vim.cmd [[colorscheme catppuccin-macchiato]]
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -57,3 +57,12 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 vim.keymap.set("x", "<leader>p", [["_dP]]) -- Don't overwrite register on paste
+
+
+vim.g.wiki_root = '~/wiki'
+vim.g.wiki_select_method = {
+  pages = require('wiki.telescope').pages,
+  tags = require('wiki.telescope').tags,
+  toc = require('wiki.telescope').toc,
+  links = require('wiki.telescope').links,
+}
