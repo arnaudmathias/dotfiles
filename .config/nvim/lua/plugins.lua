@@ -12,10 +12,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- first time startup?
--- local packer_bootstrap = ensure_packer()
-
-
 require('lazy').setup({
   -- Git
   { 'tpope/vim-fugitive' },
@@ -97,30 +93,16 @@ require('lazy').setup({
   { 'dstein64/vim-startuptime' },
   { 'lervag/wiki.vim' },
   {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v1.x',
+    'neovim/nvim-lspconfig',
     dependencies = {
-      -- LSP Support
-      {'neovim/nvim-lspconfig'},
       {
-        'williamboman/mason.nvim',
-        run = function() pcall(vim.cmd, 'MasonUpdate') end
+        'mason-org/mason.nvim',
+        dependencies = {
+          { 'mason-org/mason-lspconfig.nvim' },
+        },
+        config = function() require('plugins.mason') end
       },
-      {'williamboman/mason-lspconfig.nvim'},
-
-      -- Autocompletion
-      {'hrsh7th/nvim-cmp'},
-      {'hrsh7th/cmp-buffer'},
-      {'hrsh7th/cmp-path'},
-      {'hrsh7th/cmp-nvim-lsp'},
-      {'hrsh7th/cmp-nvim-lua'},
-
-      -- Snippets
-      {'hrsh7th/cmp-vsnip'},
-      {'hrsh7th/vim-vsnip'}
     },
     config = function() require('plugins.lsp') end
   },
 })
-
-
