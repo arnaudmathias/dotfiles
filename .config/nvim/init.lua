@@ -3,9 +3,7 @@ vim.g.mapleader = ' '
 require('plugins')
 
 vim.opt.updatetime = 100
-
 vim.opt.list = true
-
 vim.opt.mouse = 'n'
 vim.opt.autoread = true
 vim.opt.splitbelow = false
@@ -34,7 +32,24 @@ vim.opt.expandtab = true
 
 vim.cmd([[autocmd FileType * set formatoptions-=ro]])
 
---vim.cmd [[colorscheme catppuccin-macchiato]]
+vim.opt.termguicolors = true
+
+vim.g.zenbones = {
+  solid_line_nr = true,
+  darken_comments = 45,
+  lightness = 'dim',
+  darkness = 'stark'
+}
+
+vim.g.seoulbones = {
+  solid_line_nr = true,
+  lightness = 'default',
+  darkness = 'default',
+  darken_noncurrent_window = true,
+}
+
+vim.opt.background = "light"
+vim.cmd.colorscheme('seoulbones')
 
 vim.opt.number = true
 vim.opt.relativenumber = true
