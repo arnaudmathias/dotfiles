@@ -147,11 +147,7 @@ layout {
 // spawn-at-startup "alacritty" "-e" "fish"
 spawn-at-startup "~/scripts/wayland_bg.sh"
 
-spawn-at-startup "xwayland-satellite" ":3"
-
 environment {
-    DISPLAY ":3"
-
     LIBVA_DRIVER_NAME "nvidia"
     XDG_SESSION_TYPE "wayland"
     GBM_BACKEND "nvidia-drm"
