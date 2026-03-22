@@ -14,13 +14,19 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
   -- Git
-  { 'tpope/vim-fugitive' },
   {
-    'tommcdo/vim-fubitive',
-    enabled = false,
-    config = function() require('plugins.fubitive') end,
+    'NeogitOrg/neogit',
+    lazy = true,
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'esmuellert/codediff.nvim',
+      'nvim-telescope/telescope.nvim',
+    },
+    cmd = 'Neogit',
+    keys = {
+      { '<leader>gg', '<cmd>Neogit<cr>', desc = 'Show Neogit UI' }
+    }
   },
-  { 'junegunn/gv.vim' },
   {
     'lewis6991/gitsigns.nvim',
     config = function() require('plugins.gitsigns') end,
@@ -44,12 +50,13 @@ require('lazy').setup({
   {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSupdate',
+    enabled = false,
     config = function() require('plugins.treesitter') end
   },
 
   -- Fuzzy finder
   {
-    'nvim-telescope/telescope.nvim', tag = '0.1.8',
+    'nvim-telescope/telescope.nvim', tag = 'v0.2.0',
     dependencies = { {'nvim-lua/plenary.nvim'} },
     config = function () require('plugins.telescope') end,
   },
@@ -110,6 +117,21 @@ require('lazy').setup({
     main = "ibl",
     opts = {},
     config = function () require('plugins.indent') end,
+  },
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    opts = {
+    },
+    keys = {
+      {
+        "<leader>?",
+        function()
+          require("which-key").show({ global = false })
+        end,
+        desc = "Buffer Local Keymaps (which-key)",
+      },
+    },
   },
   { 'elkowar/yuck.vim' },
   {
