@@ -1,0 +1,24 @@
+[mgr]
+append_keymap = [
+  { on = [ "g", "r" ], run = 'shell -- ya emit cd "$(git rev-parse --show-toplevel)"', desc = 'cd back to git root' },
+  { on = [ "!" ], run = 'shell "$SHELL" --block', for = 'unix', desc = 'Open $SHELL here' },
+  { on = [ "!" ], run = 'shell "powershell.exe" --block', for = 'windows', desc = 'Open pwsh here' },
+]
+
+[[mgr.prepend_keymap]]
+on   = "!"
+for  = "unix"
+run  = 'shell "$SHELL" --block'
+desc = "Open $SHELL here"
+
+[[mgr.prepend_keymap]]
+on   = "!"
+for  = "windows"
+run  = 'shell "powershell.exe" --block'
+desc = "Open PowerShell here"
+
+[[mgr.prepend_keymap]]
+on   = "<C-g>"
+for  = "unix"
+run  = 'shell -- rofi -theme fullscreen-preview -show filebrowser -filebrowser-command "ya emit reveal" -filebrowser-directory "$(pwd)"'
+desc = "Grid view"

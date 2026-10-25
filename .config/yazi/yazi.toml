@@ -1,0 +1,32 @@
+# yazi.toml
+[mgr]
+show_hidden = false
+
+[opener]
+play = [
+  { run = "mpv %s", orphan = true, for = "unix" },
+  { run = '"C:\Program Files\mpv.exe" %s', orphan = true, for = "windows" }
+]
+
+view = [
+  { run = 'swayimg "$s" .', orphan = true, for = "unix" },
+]
+
+add-sub = [
+  { run  = '''printf "sub-add '%%s'\n" %s1 | socat - /tmp/mpv.sock''', for = "unix", desc = "Add sub to MPV" },
+]
+
+play-folder = [
+    { run = 'mpv --directory-mode=recursive --directory-filter-types=video -- %s', orphan = true, desc = "Play videos" },
+    { run = 'mpv --shuffle --no-resume-playback --directory-mode=recursive --directory-filter-types=video -- %s', orphan = true, desc = "Shuffle videos" },
+    { run = 'mpv --loop-file=no --image-display-duration=3 --directory-mode=recursive -- %s', orphan = true, desc = "Play videos + slideshow" },
+    { run = 'mpv --shuffle --no-resume-playback --loop-file=no --image-display-duration=3 --directory-mode=recursive -- %s', orphan = true, desc = "Shuffle videos + slideshow" },
+]
+
+[open]
+prepend_rules = [
+  { url = "*.ts", use = "play" },
+  { mime = "image/*", use = "view" },
+  { url = "*.{ass,srt,ssa,sty,sup,vtt}", use = [ "add-sub", "edit" ] },
+  { url = "*/", use = [ "play-folder", "open" ] },
+]

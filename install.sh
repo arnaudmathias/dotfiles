@@ -26,7 +26,8 @@ CONFFILES="
   mpv
   nvim
   waybar
-  niri"
+  niri
+  yazi"
 
 
 for path in $DOTFILES; do
