@@ -47,3 +47,22 @@ downscale() {
     fi
   done
 }
+
+beanprices() {
+  if [[ $# -ne 3 ]]; then
+    echo "Usage: beanprices <start-date> <end-date> <instrument>"
+    echo "Example: beanprices 2018-12-01 2018-12-05 EUR:yahoo/CAC.PA"
+    return 1
+  fi
+
+  local start="$1"
+  local end="$2"
+  local instrument="$3"
+  local current="$start"
+
+  while [[ "$current" != "$(date -I -d "$end + 1 day")" ]]; do
+    bean-price -d "$current" -e "$instrument"
+    current=$(date -I -d "$current + 1 day")
+  done
+}
+
