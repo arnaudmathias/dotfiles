@@ -48,8 +48,8 @@ vim.g.seoulbones = {
   darken_noncurrent_window = true,
 }
 
-vim.opt.background = "light"
-vim.cmd.colorscheme('seoulbones')
+--vim.opt.background = "light"
+--vim.cmd.colorscheme('seoulbones')
 
 vim.opt.number = true
 vim.opt.relativenumber = true

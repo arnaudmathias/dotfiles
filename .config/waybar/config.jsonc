@@ -2,12 +2,12 @@
     "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     // "height": 30, // Waybar height (to be removed for auto height)
-    "margin": "8 8 0 8",
+    "margin": "4 4 0 4",
     // "width": 1280, // Waybar width
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces", "hyprland/submap", "hyprland/language"],
+    "modules-left": ["hyprland/workspaces", "niri/workspaces", "hyprland/submap", "hyprland/language"],
     "modules-center": ["clock"],
-    "modules-right": ["pulseaudio", "memory", "cpu", "tray", "custom/notification"],
+    "modules-right": ["network", "pulseaudio", "memory", "cpu", "tray", "custom/notification"],
 
 
     //***************************
@@ -24,6 +24,27 @@
             "firefox": "",
             "librewolf": "",
             "alacritty": "",
+            "ghostty": "",
+            "steam": "",
+            "lollypop": "",
+            "spotify": "",
+            "^class<steam_app_\\d+>$": "",
+            "discord": "",
+            "mpv": "",
+            "nemo": "",
+            "nnn": "",
+            "yazi": "",
+            "transmission": "",
+        },
+    },
+    "niri/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            // Named workspaces
+            // (you need to configure them in niri)
+            "firefox": "",
+            "librewolf": "",
+            "alacritty": "",
             "steam": "",
             "lollypop": "",
             "spotify": "",
@@ -33,7 +54,11 @@
             "nemo": "",
             "nnn": "",
             "transmission": "",
-        },
+
+            // Icons by state
+            "active": "",
+            "default": "",
+        }
     },
     "hyprland/submap": {
         "format": "<span style=\"italic\">{}</span>",
@@ -75,8 +100,22 @@
 
     "clock": {
         // "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%a, %d %b, %I:%M %p}"
+        //"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        //"format": "{:%a, %d %b, %I:%M %p}"
+            // Icons by state
+        "format": "{:%a, %d %b, %I:%M %p}",
+        "rotate": 0,
+        "format-alt": "{:%A, %B %d, %Y (%R)}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "format": {
+                "months": "<span color='#aecce6'><b>{}</b></span>",
+                "days": "<span color='#aecce6'><b>{}</b></span>",
+                "weekdays": "<span color='#df373a'><b>{}</b></span>",
+                "today": "<span color='#df373a'><b>{}</b></span>"
+            }
+       }
     },
 
     "pulseaudio": {
@@ -85,11 +124,11 @@
         "format": "{volume}% {icon} {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": "🔇 {format_source}",
+        "format-muted": "{format_source}",
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
-            "default": ["🔊"]
+            "default": [""]
         },
         "on-click": "pavucontrol",
         "min-length": 13,
@@ -163,5 +202,17 @@
         //"on-click": "swaync-client -t -sw",
         "on-click-right": "swaync-client -d -sw",
         "escape": true
-      },
+    },
+    "network": {
+        "interface": "enp37s0",
+        "format": "{ifname}",
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{bandwidthUpBytes} {bandwidthDownBytes}",
+        "format-disconnected": "", //An empty format will hide the module.
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50
+    }
 }

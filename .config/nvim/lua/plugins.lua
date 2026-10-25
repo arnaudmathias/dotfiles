@@ -40,6 +40,16 @@ require('lazy').setup({
     dependencies = 'rktjmp/lush.nvim'
   },
   { "catppuccin/nvim", as = "catppuccin" },
+  { "shatur/neovim-ayu", as = "ayu" },
+  {
+    "oskarnurm/koda.nvim",
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
+    config = function()
+      -- require("koda").setup({ transparent = true })
+      vim.cmd("colorscheme koda")
+    end,
+  },
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },

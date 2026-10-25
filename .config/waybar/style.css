@@ -1,229 +1,267 @@
-@define-color bg #181825;
-
 * {
-    border: none;
-    border-radius: 0;
-    opacity: 1.0;
-    /* `otf-font-awesome` is required to be installed for icons */
-    font-family: Liberation Mono;
-    min-height: 20px;
-}
-
-window#waybar {
-    background: transparent;
-}
-
-window#waybar.hidden {
-    opacity: 0.2;
-}
-
-#workspaces {
-    margin-left: 8px;
-    margin-right: 8px;
-    padding-left: 8px;
-    padding-right: 8px;
-    border-radius: 10px;
-    transition: none;
-    background: @bg;
-}
-
-#workspaces button {
-    transition: none;
-    color: #7c818c;
-    background: transparent;
-    padding: 5px;
-    font-size: 18px;
-}
-
-#workspaces button.persistent {
-    color: #7c818c;
-    font-size: 12px;
-}
-
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-#workspaces button:hover {
-    transition: none;
-    box-shadow: inherit;
-    text-shadow: inherit;
-    border-radius: inherit;
-    color: @bg;
-    background: #7c818c;
-}
-
-#workspaces button.focused {
-    color: white;
-}
-
-#workspaces button.active {
-    color: white;
-}
-
-#language {
-    padding-left: 16px;
-    padding-right: 8px;
-    border-radius: 10px 0px 0px 10px;
-    transition: none;
-    color: #ffffff;
-    background: @bg;
-}
-
-#keyboard-state {
-    margin-right: 8px;
-    padding-right: 16px;
-    border-radius: 0px 10px 10px 0px;
-    transition: none;
-    color: #ffffff;
-    background: @bg;
-}
-
-#custom-pacman {
-    padding-left: 16px;
-    padding-right: 8px;
-    border-radius: 10px 0px 0px 10px;
-    transition: none;
-    color: #ffffff;
-    background: @bg;
-}
-
-#custom-mail {
-    margin-right: 8px;
-    padding-right: 16px;
-    border-radius: 0px 10px 10px 0px;
-    transition: none;
-    color: #ffffff;
-    background: @bg;
-}
-
-#submap {
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
-    transition: none;
-    color: #ffffff;
-    background: @bg;
-}
-
-#clock {
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px 10px 10px 10px;
-    transition: none;
-    color: #ffffff;
-    background: @bg;
-}
-
-#pulseaudio {
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
-    transition: none;
-    color: #ffffff;
-    background: @bg;
-}
-
-#pulseaudio.muted {
-    background-color: #90b1b1;
-    color: #2a5c45;
-}
-
-#memory {
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
-    transition: none;
-    color: #ffffff;
-    background: @bg;
-}
-
-#cpu {
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
-    transition: none;
-    color: #ffffff;
-    background: @bg;
-}
-
-#temperature {
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
-    transition: none;
-    color: #ffffff;
-    background: @bg;
-}
-
-#temperature.critical {
-    background-color: #eb4d4b;
-}
-
-#backlight {
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
-    transition: none;
-    color: #ffffff;
-    background: @bg;
-}
-
-#battery {
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
-    transition: none;
-    color: #ffffff;
-    background: @bg;
-}
-
-#battery.charging {
-    color: #ffffff;
-    background-color: #26A65B;
-}
-
-#battery.warning:not(.charging) {
-    background-color: #ffbe61;
-    color: black;
-}
-
-#battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-#tray {
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
-    transition: none;
-    color: #ffffff;
-    background: @bg;
-}
-
-#custom-notification {
-    font-family: "NotoSansMono Nerd Font";
-    margin-left: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
-    transition: none;
-    color: #ffffff;
-    background: @bg;
-}
-
-@keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: #000000;
+    /*
+    #  Colors used in this Light Waybar Theme. This is just for reference.
+        --foreground : #242639;
+        --background : #AECCE6;
+        --blue	     : #464CE1;
+        --red	     : #DF373A;
+        --violet	 : #7F00FF;
+        --slate-grey : #708090;
+    */
+        border: none;
+        border-radius: 0px;
+        font-weight: bold;
+        font-size: 14px;
+        min-height: 22px;
+        margin-left: 2px;
+        margin-right: 2px;
     }
-}
+
+    window#waybar {
+        background: #AECCE6;
+        /*Uncomment the below item to add a border.*/
+        /*border: 1px solid #9DCBD7;*/
+        border-radius: 5px;
+    }
+
+    #workspaces button {
+        box-shadow: none;
+        text-shadow: none;
+        padding: 0px;
+        margin-right: 0px;
+        margin-left: 0px;
+        /*padding-right: 10px;*/
+        /*padding-left: 10px;*/
+        color: #242639;
+    }
+
+    #workspaces button.active {
+        background: #AECCE6;
+        color: #242639;
+        margin-right: 0px;
+        margin-left: 0px;
+        /*padding-right: 4px;*/
+        /*padding-left: 4px;*/
+    }
+
+    #workspaces button:hover {
+        background: transparent;
+        color: #242639;
+    }
+
+    #language {
+        padding-left: 16px;
+        padding-right: 8px;
+        border-radius: 10px 0px 0px 10px;
+        transition: none;
+        color: #242639;
+    }
+
+    #taskbar button {
+        box-shadow: none;
+        text-shadow: none;
+        padding: 0px;
+        margin-right: 0px;
+        margin-left: 0px;
+        padding-right: 4px;
+        padding-left: 4px;
+        color: #242639;
+    }
+
+    #taskbar button.active {
+        background: transparent;
+        color: #242639;
+        margin-right: 0px;
+        margin-left: 0px;
+        padding-right: 4px;
+        padding-left: 4px;
+    }
+
+    #taskbar button:hover {
+        /*Colors are reverted. Although the BG may not work everywhere*/
+        background: #242639;
+        color: #AECCE6;
+    }
+
+    #clock {
+        box-shadow: none;
+        text-shadow: none;
+        padding: 0px;
+        border-radius: 5px;
+        margin-top: 3px;
+        margin-right: 6px;
+        margin-left: 6px;
+        padding-right: 3px;
+        padding-left: 3px;
+        color: #242639;
+    }
+
+    #cpu {
+        box-shadow: none;
+        text-shadow: none;
+        padding: 0px;
+        border-radius: 5px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        padding-right: 4px;
+        padding-left: 4px;
+        color: #242639;
+    }
+
+    #network {
+        box-shadow: none;
+        text-shadow: none;
+        padding: 0px;
+        border-radius: 5px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        padding-right: 4px;
+        padding-left: 4px;
+        color: #242639;
+    }
+
+    #taskbar {
+        padding: 0px;
+    }
+
+    #custom-appmenu {
+        /*
+        This is for the module app menu.
+        */
+        box-shadow: none;
+            text-shadow: none;
+        padding: 0px;
+        border-radius: 5px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        margin-right: 1px;
+        margin-left: 1px;
+        padding-right: 4px;
+        padding-left: 4px;
+        color: #242639;
+    }
+    #pulseaudio {
+        box-shadow: none;
+        text-shadow: none;
+        padding: 0px;
+        border-radius: 5px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        padding-right: 12px;
+        padding-left: 4px;
+        color: #242639;
+    }
+    #memory {
+        box-shadow: none;
+            text-shadow: none;
+        padding: 0px;
+        border-radius: 5px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        padding-right: 4px;
+        padding-left: 4px;
+        color: #242639;
+    }
+    
+    #disk {
+        box-shadow: none;
+             text-shadow: none;
+         padding: 0px;
+         border-radius: 5px;
+         margin-top: 3px;
+         margin-bottom: 3px;
+         padding-right: 4px;
+         padding-left: 4px;
+         color: #242639;
+    }
+
+    #tray {
+        box-shadow: none;
+        text-shadow: none;
+        padding: 0px;
+        border-radius: 5px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        padding-right: 4px;
+        padding-left: 4px;
+        color: #242639;
+        color: #ff0000;
+        background: #000000;
+    }
+
+    #user {
+        box-shadow: none;
+         text-shadow: none;
+         padding: 0px;
+         border-radius: 5px;
+         margin-top: 3px;
+         margin-bottom: 3px;
+         padding-right: 4px;
+         padding-left: 4px;
+         color: #242639;
+    }
+
+    #custom-quit {
+        box-shadow: none;
+        text-shadow: none;
+        padding: 0px;
+        border-radius: 5px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        margin-right: 2px;
+        margin-left: 2px;
+        padding-right: 10px;
+        padding-left: 10px;
+        color: #242639;
+    }
+
+    #custom-lock {
+        box-shadow: none;
+        text-shadow: none;
+        padding: 0px;
+        border-radius: 5px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        margin-right: 2px;
+        margin-left: 2px;
+        padding-right: 10px;
+        padding-left: 10px;
+        color: #242639;
+    }
+
+    #custom-reboot{
+        box-shadow: none;
+        text-shadow: none;
+        padding: 0px;
+        border-radius: 5px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        margin-right: 2px;
+        margin-left: 2px;
+        padding-right: 10px;
+        padding-left: 10px;
+        color: #242639;
+    }
+
+    #custom-shutdown {
+        box-shadow: none;
+        text-shadow: none;
+        padding: 0px;
+        border-radius: 5px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        margin-right: 2px;
+        margin-left: 2px;
+        padding-right: 10px;
+        padding-left: 10px;
+        color: #242639;
+    }
+    #custom-notification {
+        font-family: "NotoSansMono Nerd Font";
+        margin-left: 8px;
+        padding-left: 16px;
+        padding-right: 16px;
+        border-radius: 10px;
+        transition: none;
+        color: #242639;
+    }
